@@ -20,8 +20,18 @@ perema VARCHAR2 (35),
 CREATE TABLE stu (
 perID
 stulunch VARCHAR2 (1)
-stu
+sturet VARCHAR2 (1)
+stutru VARCHAR2 (1)
+stugradecomm VARCHAR2 (1)
+stugradesatis VARCHAR2 (1)
+stuhomewrk VARCHAR2 (35)
+stuserviceID VARCHA2 (35) --CHECK THIS
 
 
 -- PARENT TABLE
 CREATE TABLE par
+stuID VARCHAR2 (35)
+emgcont VARCHAR2 (35)
+parempplace VARCHAR2 (35)
+parrelation VARCHAR2 (35)
+parwrkphn NUMBER (10) --CHECK THIS
