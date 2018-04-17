@@ -51,9 +51,15 @@ phnexc NUMBER (35)
 
 CONSTRAINT phn_phnID_pk PRIMARY KEY(phnID)) ;
 
--- INCOME TABLE  
+-- EMERGENCY TABLE  
+CREATE emg (
+emgID VARCHAR2 (35)    
+emgdesc VARCHAR2 (35)
 
+CONSTRAINT phn_phnID_pk PRIMARY KEY(phnID)) ;
 -- SPECIAL SERVICES TABLE
 CREATE TABLE serv (
+  
+  
   
 
