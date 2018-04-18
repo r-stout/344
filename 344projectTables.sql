@@ -52,13 +52,13 @@ hosprim VARCHAR2 (1) NOT NULL, --PRIMARY (Y/N)
 -- STUDENT TABLE
 CREATE TABLE stu (
 perID
-stulunch VARCHAR2 (1)
-sturet VARCHAR2 (1)
-stutru VARCHAR2 (1)
-stugradecomm VARCHAR2 (1)
-stugradesatis VARCHAR2 (1)
-stuhomewrk VARCHAR2 (35)
-stuserviceID VARCHA2 (35) --CHECK THIS
+stulunch VARCHAR2 (1) NOT NULL,
+sturet VARCHAR2 (1) NOT NULL,
+stutru VARCHAR2 (1) NOT NULL,
+stugradecomm VARCHAR2 (1) NOT NULL,
+stugradesatis VARCHAR2 (1) NOT NULL,
+stuhomewrk VARCHAR2 (35) NOT NULL,
+stuserviceID VARCHA2 (35) NOT NULL,--CHECK THIS
   
 CONSTRAINT stu_perID_pk PRIMARY KEY(perID),
 CONSTRAINT stu_perID_fk FOREIGN KEY (perID) REFERENCES per(perID),
@@ -67,30 +67,31 @@ CONSTRAINT stu_servID_fk FOREIGN KEY (servID) REFERENCES serv(servID)); -- MAKE 
 -- PARENT TABLE
 CREATE TABLE par (
 stuID VARCHAR2 (35)
-emgcont VARCHAR2 (35)
-parempplace VARCHAR2 (35)
-parrelation VARCHAR2 (35)
-parwrkphn NUMBER (10) --CHECK THIS
+emgcont VARCHAR2 (35) NOT NULL,
+parempplace VARCHAR2 (35) NOT NULL,
+parrelation VARCHAR2 (35) NOT NULL,
+parwrkphn NUMBER (10) NOT NULL,--CHECK THIS
  
   
 -- PHONE TABLE  
 CREATE TABLE phn (
-phnID VARCHAR2 (35)
-phntype VARCHAR2 (1)
-phncntry NUMBER (1)
-phnarea NUMBER (1)
-phnexc NUMBER (35)
+phnID VARCHAR2 (35) NOT NULL,
+phntype VARCHAR2 (1) NOT NULL,
+phncntry NUMBER (1) NOT NULL,
+phnarea NUMBER (1) NOT NULL,
+phnexc NUMBER (35) NOT NULL,
 
 CONSTRAINT phn_phnID_pk PRIMARY KEY(phnID)) ;
 
 -- EMERGENCY TABLE  
 CREATE emg (
-emgID VARCHAR2 (35)    
-emgdesc VARCHAR2 (35)
+emgID VARCHAR2 (35),    
+emgdesc VARCHAR2 (35) NOT NULL,
 
 CONSTRAINT phn_phnID_pk PRIMARY KEY(phnID)) ;
 -- SPECIAL SERVICES TABLE
 CREATE TABLE serv (
+servID NUMBER (10),
   
 --Income Table
 CREATE TABLE inc (
@@ -102,21 +103,48 @@ inclivew VARCHAR2 (15) NOT NULL,--MEMBER LIVES WITH
 
 --MEDICAL INFO TABLE
 CREATE TABLE medin (
+stuID NUMBER (10),
 medinID NUMBER (10),
-medinpname VARCHAR2 (10) NOT NULL, -- PHYSICIAN NAME CHECK THIS
-medinphyphn NUMBER (10) NOT NULL, --PHYSICIAN PHONE NUMBER CHECK THIS
-medinhos VARCHAR2 (35) NOT NULL, --HOSPICAL/CLINIC
-medinhosphn NUMBER (10) NOT NULL, -- HOSPITAL PHONE NUMBER
-
-CONSTRAINT medin_medinID_pk PRIMARY KEY (medinID)) ;
+medindate DATE, -- DATE OF LAST VISIT
+medinupda VARCHAR2 (1) --IMMUNIZATION UPDATE (Y/N)  
+CONSTRAINT medin_stuID_pk PRIMARY KEY (stuID)
+CONSTRAINT medin_medinID_pk PRIMARY KEY (medinID)  
+CONSTRAINT medin_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID));  
   
   
 -- ADDRESS TABLE   
 CREATE TABLE addr (
 addrID NUMBER (10),
-addr
-addr  
-addr  
+addrstreet VARCHAR2 (35) NOT NULL,
+addrcity VARCHAR2 (35) NOT NULL,  
+addrzip NUMBER (5) NOT NULL,  
   
-  
+CONSTRAINT addr_addrID_pk PRIMARY KEY (addrID)) ;  
 
+--MILITARY BRANCH TABLE
+CREATE TABLE brn (
+brnID NUMBER (10),
+brnname VARCHAR2(35) NOT NULL,
+  
+CONSTRAINT brn_brnID_pk PRIMARY KEY (brnID));  
+
+--STUDENT DOCTOR TABLE
+CREATE TABLE stdoc (
+stuID NUMBER (10),
+docID NUMBER (10),
+ 
+CONSTRAINT stdoc_pk PRIMARY KEY (stuID, docID)
+CONSTRAINT stdoc_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID)
+CONSTRAINT stdoc_docID_fk FOREIGN KEY (docID) REFERENCES doc(docID));
+  
+--SOCIAL DEVELOPMENT TABLE 
+CREATE TABLE sdev (
+stuID NUMBER (10),
+sdevstress VARCHAR2 (1) NOT NULL, --STRESS (Y/N?)
+sdevdral VARCHAR2 (1) NOT NULL, --DRUG AL PROBLEMS IN FAMILY (Y/N?)
+sdevleg VARCHAR2 (1) NOT NULL, --LEGAL ISSUES (Y/N)
+sdevbull VARCHAR2 (1) NOT NULL, --BULLYING ISSUES
+
+CONSTRAINT sdev_stuID_pk PRIMARY KEY (stuID)
+CONSTRIANT sdev_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID));
+  
