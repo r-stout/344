@@ -55,10 +55,15 @@ stuID NUMBER (10),
 hosID NUMBER (10)NOT NULL,
 hosname VARCHAR2 (35) NOT NULL,
 hosprim VARCHAR2 (1) NOT NULL, --PRIMARY (Y/N)  
-    
+hosphn NUMBER (10) NOT NULL, --PHONE NUMBER  
+
+CONSTRAINT hos_pk PRIMARY KEY (stuID, hosID)  
+CONSTRAINT hos_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID)
+CONSTRAINT hos_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID));
+  
 -- STUDENT TABLE
 CREATE TABLE stu (
-perID
+perID NUMBER (10),
 stulunch VARCHAR2 (1) NOT NULL,
 sturet VARCHAR2 (1) NOT NULL,
 stutru VARCHAR2 (1) NOT NULL,
@@ -121,6 +126,7 @@ stuID NUMBER (10),
 medinID NUMBER (10),
 medindate DATE, -- DATE OF LAST VISIT
 medinupda VARCHAR2 (1) --IMMUNIZATION UPDATE (Y/N)  
+  
 CONSTRAINT medin_stuID_pk PRIMARY KEY (stuID)
 CONSTRAINT medin_medinID_pk PRIMARY KEY (medinID)  
 CONSTRAINT medin_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID));  
@@ -251,5 +257,13 @@ emadom VARCHAR2 (25)
 CONSTRAINT ema_emaID_pk PRIMARY KEY(emaID)
 CONSTRAINT ema_emaID_fk FOREIGN KEY (emaID) REFREENCES ema(emaID));  
 
+--STUDENT DOCTOR TABLE
+CREATE TABLE sdoc (
+stuID NUMBER (10),  
+docID NUMBER (10),    
+  
+CONSTRAINT sdoc_pk PRIMARY KEY (stuID, docID)
+CONSTRAINT sdoc_stuID_fk FOREIGN KEY (stuID)
+CONSTRAINT sdoc_docID_fk FOREIGN KEY (docID));
 
-                                    
+
