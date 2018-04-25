@@ -27,9 +27,9 @@ DROP TABLE pro CASCADE CONSTRAINTS:
 --PERSON TABLE
 CREATE TABLE per (
 perID VARCHAR2(35),
-perfname VARCHAR2(35),
-perlname VARCHAR2(35),
-permname VARCHAR2 (35),
+perfname VARCHAR2(35) NOT NULL,
+perlname VARCHAR2(35) NOT NULL,
+permname VARCHAR2 (35),--NULLABLE BECAUSE SOME MIGHT NOT LIST A MIDDLE NAME. 
 
 CONSTRAINT per_perID_pk PRIMARY KEY(perID));
   
@@ -301,3 +301,43 @@ CONSTRAINT pro_pk PRIMARY KEY (proID)
 CONSTRAINT pro_stuID_fk FOREIGN KEY (stuID) REFERENCES stu(stuID));
 
 
+
+--INSERT STATEMENTS
+
+INSERT INTO per 
+  VALUES (3000000001, 'Noah', 'Wetzel','James');
+  
+INSERT INTO per 
+  VALUES (3000000002, 'Jordan', 'Jansen','Fredrick'); 
+  
+INSERT INTO per 
+  VALUES (3000000003, 'Ian', 'Wetzel','Charles');
+  
+INSERT INTO per 
+  VALUES (3000000004, 'Justin', 'Lorentz','Allen');  
+  
+INSERT INTO per 
+  VALUES (3000000005, 'Rachel', 'Stout','Marie');
+  
+INSERT INTO per 
+  VALUES (3000000006, 'Erin', 'Wetzel','Charlene');
+
+INSERT INTO per 
+  VALUES (3000000007, 'Sunny', 'Chen',' ');
+  
+INSERT INTO per 
+  VALUES (3000000008, 'Jacob', 'Maurer','Peter');
+  
+--DEMOGRAPHIC 
+
+INSERT INTO dem
+  VALUES (4000000001, 'M', 16-OCT-1996);
+  
+INSERT INTO dem
+  VALUES (4000000002, 'M', 01-JAN-1950);
+  
+INSERT INTO dem
+  VALUES (4000000003, 'M', 20-APR-1994);
+  
+INSERT INTO dem
+  VALUES (4000000004, 'M', 25-APR-1997);  
