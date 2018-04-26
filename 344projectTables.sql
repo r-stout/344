@@ -341,3 +341,70 @@ INSERT INTO dem
   
 INSERT INTO dem
   VALUES (4000000004, 'M', 25-APR-1997);  
+  
+INSERT INTO dem
+  VALUES (40000005, 'F', 15-JUN-1997);  
+  
+INSERT INTO dem
+  VALUES (40000006, 'F', 30-SEP-1998);
+  
+ INSERT INTO dem
+  VALUES (4000000007, 'F', 25-APR-1997); -- check date
+  
+INSERT INTO dem
+  VALUES (4000000008, 'M', 28-JUN-1997); 
+  
+  
+--EMAIL  
+INSERT INTO email
+  VALUES ('WETZELNJ5708@uwec.edu', 'WETZELNJ5708', 'uwec.edu')
+  
+INSERT INTO email
+  VALUES ('jordan@uwec.edu', 'j', 'uwec.edu') --
+  
+INSERT INTO email
+  VALUES ('ianwtz@gmail.com', 'ianwtz', 'gmail.com')
+  
+INSERT INTO email
+  VALUES ('LORENTJA6352@uwec.edu', 'LORENTJA6352', 'uwec.edu')  
+  
+INSERT INTO email
+  VALUES ('rachel@uwec.edu', 'r', 'uwec.edu')     --
+  
+INSERT INTO email
+  VALUES ('erin123@gmail.com', 'erin123', 'gmail.com')
+  
+INSERT INTO email
+  VALUES ('sunny@uwec.edu', 's', 'uwec.edu')
+  
+INSERT INTO email
+  VALUES ('jake@uwec.edu', 'jake', 'uwec.edu')   --
+  
+--PHONE DO WE NEED TO ADD PERSON ID?? 
+
+INSERT INTO phn
+  VALUES ('10001', 'C', '1', '920', '8583994') --Fix data type in create table
+  
+INSERT INTO phn
+  VALUES ('10002', 'C', '1', '715', '7652134')  
+  
+INSERT INTO phn
+  VALUES ('10003', 'C', '1', '920', '4562177')  
+  
+INSERT INTO phn
+  VALUES ('10004', 'W', '1', '414', '8865432') 
+  
+INSERT INTO phn
+  VALUES ('10005', 'C', '1', '952', '7775544') 
+  
+INSERT INTO phn
+  VALUES ('10006', 'W', '1', '920', '3435612')  
+  
+INSERT INTO phn
+  VALUES ('10007', 'C', '1', '920', '8583994') 
+  
+INSERT INTO phn
+  VALUES ('10008', 'C', '1', '715', '7785656') 
+  
+  
+  
